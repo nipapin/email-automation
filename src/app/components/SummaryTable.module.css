@@ -1,0 +1,266 @@
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.exportBtn {
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--foreground);
+  border-radius: 6px;
+  background: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.exportBtn:hover {
+  opacity: 0.85;
+}
+
+.exportBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.refreshBtn {
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.refreshBtn:hover:not(:disabled) {
+  border-color: rgba(128, 128, 128, 0.6);
+}
+
+.refreshBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dateLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dateLabelText {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.dateInput {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  color: inherit;
+  background: var(--background, transparent);
+}
+
+.dateInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.progressBar {
+  margin-top: 12px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(128, 128, 128, 0.2);
+  overflow: hidden;
+  max-width: 400px;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: var(--foreground);
+  opacity: 0.6;
+  transition: width 0.2s ease;
+}
+
+.rowProcessing {
+  opacity: 0.92;
+}
+
+.rowError {
+  background: rgba(200, 60, 60, 0.08);
+}
+
+.status {
+  font-size: 15px;
+  opacity: 0.6;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.error {
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th {
+  text-align: left;
+  padding: 8px 10px;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  opacity: 0.65;
+  background: rgba(128, 128, 128, 0.06);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+  vertical-align: top;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: rgba(128, 128, 128, 0.04);
+}
+
+.editable {
+  cursor: text;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  min-width: 36px;
+  outline: none;
+  transition: background 0.15s;
+}
+
+.editable:hover {
+  background: rgba(128, 128, 128, 0.08);
+}
+
+.editable:focus {
+  background: rgba(128, 128, 128, 0.12);
+  outline: 2px solid rgba(100, 100, 255, 0.4);
+}
+
+.cellEmpty {
+  opacity: 0.3;
+  font-style: italic;
+}
+
+.amountCell {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.linkCell {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.emailLink {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+.emailLink:hover {
+  opacity: 0.85;
+}
+
+.emailLink:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.noteLink {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+.noteLink:hover {
+  opacity: 0.85;
+}
+
+.readonlyCell {
+  opacity: 0.9;
+  font-size: 13px;
+}
+
+.projectCell {
+  max-width: 220px;
+}

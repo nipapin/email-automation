@@ -1,0 +1,20 @@
+.textarea {
+  width: 100%;
+  min-height: 280px;
+  max-height: min(55vh, 520px);
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.55;
+  font-family: inherit;
+  color: inherit;
+  background: rgba(128, 128, 128, 0.06);
+  border: 1px solid rgba(128, 128, 128, 0.22);
+  border-radius: 8px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: rgba(128, 128, 128, 0.45);
+}
