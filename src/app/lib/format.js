@@ -67,3 +67,9 @@ export function senderLabel(from) {
   if (from.name) return from.name;
   return from.address ?? "Unknown";
 }
+
+/** Имя или e-mail отправителя для колонки «Инженер» (как в processSingleMessage). */
+export function senderDisplayName(from) {
+  if (!from) return "";
+  return String(from.name || from.address || "").trim();
+}

@@ -3,7 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import EmailModal from "./EmailModal";
 import NoteModal from "./NoteModal";
-import { formatAmountRu, formatLetterDateRu } from "../lib/format";
+import {
+  formatAmountRu,
+  formatLetterDateRu,
+  senderDisplayName,
+} from "../lib/format";
 import css from "./SummaryTable.module.css";
 
 function todayIsoLocal() {
@@ -31,7 +35,7 @@ export function buildRowsFromEmails(emails) {
       e.parsed?.adjustedAmount != null && e.parsed?.adjustedAmount !== ""
         ? formatAmountRu(e.parsed.adjustedAmount)
         : "",
-    engineer: e.parsed?.engineer ?? "",
+    engineer: senderDisplayName(e.from),
     projectInfo: e.parsed?.projectInfo ?? "",
     workType: e.parsed?.workType ?? "",
     estimateAmount:
@@ -55,7 +59,7 @@ export function buildPlaceholderRow(item) {
     contractor: "",
     invoiceAmount: "",
     adjustedAmount: "",
-    engineer: "",
+    engineer: senderDisplayName(item.from),
     projectInfo: "",
     workType: "",
     estimateAmount: "",
@@ -73,7 +77,7 @@ const COLUMNS = [
   { key: "contractor", label: "Контрагент", kind: "editable" },
   { key: "invoiceAmount", label: "Сумма счета", kind: "editable", amount: true },
   { key: "adjustedAmount", label: "Сумма (2)", kind: "editable", amount: true },
-  { key: "engineer", label: "Инженер", kind: "editable" },
+  { key: "engineer", label: "Инженер", kind: "readonly" },
   { key: "projectInfo", label: "Проект/заказчик", kind: "editable", wide: true },
   { key: "workType", label: "Вид работ", kind: "editable" },
   { key: "estimateAmount", label: "∑ сметы", kind: "editable", amount: true },
@@ -396,9 +400,13 @@ export default function SummaryTable() {
                       );
                     }
                     if (col.kind === "readonly") {
+                      const ro =
+                        row[col.key] === "" || row[col.key] == null
+                          ? "—"
+                          : String(row[col.key]);
                       return (
                         <td key={col.key} className={css.readonlyCell}>
-                          {row.letterDate}
+                          {ro}
                         </td>
                       );
                     }

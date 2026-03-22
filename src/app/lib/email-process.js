@@ -103,7 +103,7 @@ export function buildParsedFromAI(aiResult, senderName) {
     paymentDate: aiResult.paymentDate ?? null,
     lineCode: aiResult.lineCode ?? null,
     adjustedAmount: aiResult.adjustedAmount ?? null,
-    engineer: aiResult.engineer ?? senderName,
+    engineer: senderName,
     projectInfo: aiResult.projectInfo ?? null,
     workType: aiResult.workType ?? null,
     estimateAmount: aiResult.estimateAmount ?? null,
