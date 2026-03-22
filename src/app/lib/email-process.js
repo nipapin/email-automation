@@ -43,7 +43,7 @@ function normalizeWorkTypeString(raw) {
     одм: "ОДМ",
   };
   if (aliases[lower]) return aliases[lower];
-  return WORK_TYPE_CODES.has(t) ? t : null;
+  return null;
 }
 
 function hasEstimateAmount(parsed) {
@@ -60,8 +60,7 @@ export function refineParsedWorkType(parsed, { attachmentPdfs, attachmentImages 
   const hasEst = hasEstimateAmount(parsed);
 
   if (workType === "ДР" || workType === "доп раб") {
-    if (!hasSmeta && !hasEst) workType = "доп раб";
-    else if (hasSmeta || hasEst) workType = "ДР";
+    workType = hasSmeta || hasEst ? "ДР" : "доп раб";
   }
 
   return { ...parsed, workType };
